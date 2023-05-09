@@ -8,3 +8,8 @@ export const checkImageURL = (url) => {
     return pattern.test(url);
   }
 };
+
+export const formatJobPostingTime = (utcDate) => {
+  const options = { timeZone: "Asia/Karachi" };
+  return new Date(utcDate).toLocaleString("en-PK", options);
+};

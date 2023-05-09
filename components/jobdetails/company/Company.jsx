@@ -3,9 +3,9 @@ import { View, Text, Image } from "react-native";
 
 import styles from "./company.style";
 import { icons, DEFAULT_COMPANY_LOGO } from "../../../constants";
-import { checkImageURL } from "../../../utils";
+import { checkImageURL, formatJobPostingTime } from "../../../utils";
 
-const Company = ({ jobTitle, logo, location, companyName }) => {
+const Company = ({ jobTitle, logo, location, companyName, postingTime }) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoBox}>
@@ -28,6 +28,9 @@ const Company = ({ jobTitle, logo, location, companyName }) => {
           />
           <Text style={styles.locationName}>{location}</Text>
         </View>
+      </View>
+      <View style={{ marginTop: 6 }}>
+        <Text>Posted at: {formatJobPostingTime(postingTime)}</Text>
       </View>
     </View>
   );
