@@ -13,10 +13,6 @@ const NearbyJobs = () => {
     num_pages: "1",
   });
 
-  const handleNavigate = () => {
-    router.push(`/job-details/${job?.job_id}`);
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -33,9 +29,9 @@ const NearbyJobs = () => {
         ) : (
           data?.map((job) => (
             <NearbyJobCard
-              key={`nearby-job-${job?.job_id}`}
+              key={`nearby-job-${job.job_id}`}
               item={job}
-              handleNavigate={handleNavigate}
+              handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
             />
           ))
         )}
